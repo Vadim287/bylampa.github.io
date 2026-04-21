@@ -385,11 +385,11 @@ Lampa.Settings.listener.follow('open', function (e) {
                             },
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://plugin.rootu.top/tmdb.js', 'ByLAMPA TMDB Proxy', '@bylampa', 'ByLAMPA TMDB', nthChildIndex);
+							itemON('https://bylampa.github.io/tmdb-proxy.js', 'ByLAMPA TMDB Proxy', '@bylampa', 'ByLAMPA TMDB', nthChildIndex);
 							// console.log("nthChildIndex, переданный в itemON:", nthChildIndex);
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://plugin.rootu.top/tmdb.js";
+							var pluginToRemoveUrl = "https://bylampa.github.io/tmdb-proxy.js";
 							deletePlugin(pluginToRemoveUrl, nthChildIndex);
 							// console.log("nthChildIndex, переданный в deletePlugin:", nthChildIndex);
 						}
@@ -405,13 +405,13 @@ Lampa.Settings.listener.follow('open', function (e) {
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);*/
-						var myResult = checkPlugin('http://plugin.rootu.top/tmdb.js');
+						var myResult = checkPlugin('https://bylampa.github.io/tmdb-proxy.js');
                                                 var pluginsArray = Lampa.Storage.get('plugins');
                                                     setTimeout(function() {
                                                        $('div[data-name="ByLAMPA TMDB"]').append('<div class="settings-param__status one"></div>');
                                                        var pluginStatus = null;
                                                        for (var i = 0; i < pluginsArray.length; i++) {
-                                                          if (pluginsArray[i].url === 'http://plugin.rootu.top/tmdb.js') {
+                                                          if (pluginsArray[i].url === 'https://bylampa.github.io/tmdb-proxy.js') {
                                                              pluginStatus = pluginsArray[i].status;
                                                              break;
                                                           }
@@ -447,11 +447,11 @@ Lampa.Settings.listener.follow('open', function (e) {
                             },
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://bylampa.github.io/tmdb-proxy.js', 'Rootu TMDB Proxy', '@rootu', 'Rootu TMDB', nthChildIndex);
+							itemON('http://plugin.rootu.top/tmdb.js', 'Rootu TMDB Proxy', '@rootu', 'Rootu TMDB', nthChildIndex);
 							// console.log("nthChildIndex, переданный в itemON:", nthChildIndex);
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://bylampa.github.io/tmdb-proxy.js";
+							var pluginToRemoveUrl = "http://plugin.rootu.top/tmdb.js";
 							deletePlugin(pluginToRemoveUrl, nthChildIndex);
 							// console.log("nthChildIndex, переданный в deletePlugin:", nthChildIndex);
 						}
@@ -467,13 +467,13 @@ Lampa.Settings.listener.follow('open', function (e) {
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);*/
-						var myResult = checkPlugin('https://bylampa.github.io/tmdb-proxy.js');
+						var myResult = checkPlugin('http://plugin.rootu.top/tmdb.js');
                                                 var pluginsArray = Lampa.Storage.get('plugins');
                                                     setTimeout(function() {
                                                        $('div[data-name="Rootu TMDB"]').append('<div class="settings-param__status one"></div>');
                                                        var pluginStatus = null;
                                                        for (var i = 0; i < pluginsArray.length; i++) {
-                                                          if (pluginsArray[i].url === 'https://bylampa.github.io/tmdb-proxy.js') {
+                                                          if (pluginsArray[i].url === 'http://plugin.rootu.top/tmdb.js') {
                                                              pluginStatus = pluginsArray[i].status;
                                                              break;
                                                           }
