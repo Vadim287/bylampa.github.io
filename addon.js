@@ -500,7 +500,7 @@ Lampa.Settings.listener.follow('open', function (e) {
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);*/
-						var myResult = checkPlugin('https://bylampa.github.io/tmdb-proxy.js');
+						/*var myResult = checkPlugin('https://bylampa.github.io/tmdb-proxy.js');
                                                 var pluginsArray = Lampa.Storage.get('plugins');
                                                     setTimeout(function() {
                                                        $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
