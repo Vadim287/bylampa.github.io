@@ -491,6 +491,68 @@ Lampa.Settings.listener.follow('open', function (e) {
 						    });
 					}
 		});
+
+	    Lampa.SettingsApi.addParam({
+					component: 'add_tmdb_proxy_plugin',
+					param: {
+						name: 'Andrey TMDB',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
+                    			//default: '1',
+						},
+					field: {
+						name: 'Andrey TMDB Proxy',
+						description: 'Проксирование постеров для сайта TMDB'
+                            },
+					onChange: function(value) {
+						if (value == '1') {
+							itemON('http://185.209.28.172/tmdb', 'Andrey TMDB Proxy', '@AndreyURL54', 'Andrey TMDB', nthChildIndex);
+							// console.log("nthChildIndex, переданный в itemON:", nthChildIndex);
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://185.209.28.172/tmdb";
+							deletePlugin(pluginToRemoveUrl, nthChildIndex);
+							// console.log("nthChildIndex, переданный в deletePlugin:", nthChildIndex);
+						}
+					},
+					onRender: function (item) {
+						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						/*var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy')
+						setTimeout(function() {	
+							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);*/
+						var myResult = checkPlugin('http://185.209.28.172/tmdb');
+                                                var pluginsArray = Lampa.Storage.get('plugins');
+                                                    setTimeout(function() {
+                                                       $('div[data-name="Andrey TMDB"]').append('<div class="settings-param__status one"></div>');
+                                                       var pluginStatus = null;
+                                                       for (var i = 0; i < pluginsArray.length; i++) {
+                                                          if (pluginsArray[i].url === 'http://185.209.28.172/tmdb') {
+                                                             pluginStatus = pluginsArray[i].status;
+                                                             break;
+                                                          }
+                                                       }
+                                                       if (myResult && pluginStatus !== 0) {
+                                                          $('div[data-name="Andrey TMDB"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                                                       } else if (pluginStatus === 0) {
+                                                          $('div[data-name="Andrey TMDB"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                                                       } else {
+                                                          $('div[data-name="Andrey TMDB"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                                                       }
+                                                    }, 100);
+						    item.on("hover:enter", function (event) {
+                                                        nthChildIndex = focus_back(event); // Сохраняем элемент в переменной
+						    });
+					}
+		});
 	
 /* Интерфейс */
         Lampa.Settings.listener.follow('open', function (e) {
